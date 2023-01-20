@@ -1,0 +1,22 @@
+<p>weather-card works!</p>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<div class="w3-container" style="display:flex; flex-flow: row wrap;" >
+    <div class="w3-container" *ngFor="let data of weatherData; let i=index " id={{i}} >
+        <h2>Weather Details</h2>
+
+        <div class="w3-card-4" style="width:70%">
+            <header class="w3-container w3-light-grey">
+                <h3>{{data.city}}   {{data.country}}</h3>
+            </header>
+            <div class="w3-container">
+                <p>Temperature: {{data.temp}}°F&nbsp;&nbsp;&nbsp; Feels like {{data.feel}}°F</p>
+                <hr>
+                <img src={{data.icon}} alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+                <span>{{data.description}} </span>
+                <p>Humidity: {{data.humidity}}%</p> 
+                <p>Pressure: {{data.pressure}} hPa </p> 
+                <p>Wind speed: {{data.windSpeed}} m/h</p><br>
+            </div>
+        </div>
+    </div>
+</div>
