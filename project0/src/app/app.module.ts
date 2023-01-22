@@ -8,13 +8,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WeatherComponent } from './weather/weather.component';
 import { WeatherCardComponent } from './weather/weather-card/weather-card.component';
+import { WeatherForecastComponent } from './weather-forecast/weather-forecast.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     WeatherComponent,
-    WeatherCardComponent
+    WeatherCardComponent,
+    WeatherForecastComponent
   ],
   imports: [
     BrowserModule,

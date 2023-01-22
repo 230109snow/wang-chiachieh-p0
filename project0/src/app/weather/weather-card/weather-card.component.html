@@ -1,22 +1,27 @@
-<p>weather-card works!</p>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <div class="w3-container" style="display:flex; flex-flow: row wrap;" >
-    <div class="w3-container" *ngFor="let data of weatherData; let i=index " id={{i}} >
+    <div class="w3-container" >
         <h2>Weather Details</h2>
 
         <div class="w3-card-4" style="width:70%">
             <header class="w3-container w3-light-grey">
-                <h3>{{data.city}}   {{data.country}}</h3>
+                <h4>{{weatherData.city}}   {{weatherData.country}}<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <button class="w3-button w3-circle w3-teal" (click)="deleteObj(weatherData.city)">X</button></h4>                
             </header>
             <div class="w3-container">
-                <p>Temperature: {{data.temp}}°F&nbsp;&nbsp;&nbsp; Feels like {{data.feel}}°F</p>
+                <p>Temperature: {{weatherData.temp}}°F&nbsp;&nbsp;&nbsp; Feels like {{weatherData.feel}}°F</p>
                 <hr>
-                <img src={{data.icon}} alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-                <span>{{data.description}} </span>
-                <p>Humidity: {{data.humidity}}%</p> 
-                <p>Pressure: {{data.pressure}} hPa </p> 
-                <p>Wind speed: {{data.windSpeed}} m/h</p><br>
+                <img src={{weatherData.icon}} alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+                <span>{{weatherData.description}} </span>
+                <p>Humidity: {{weatherData.humidity}}%</p> 
+                <p>Pressure: {{weatherData.pressure}} hPa </p> 
+                <p>Wind speed: {{weatherData.windSpeed}} mi/h</p><br>
+                <button class="w3-button w3-teal" (click)="showForecast()" [innerText]="showText"></button>
             </div>
         </div>
+        <div *ngIf="showInfo" >
+                <app-weather-forecast  [fcData]="forecastData"></app-weather-forecast>
+        </div>
+        
     </div>
 </div>
