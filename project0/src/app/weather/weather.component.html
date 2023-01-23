@@ -19,5 +19,5 @@
 </div>
 
 <div class="w3-container" style="display:flex; flex-flow: row wrap;" *ngIf="weatherObj.length">
-    <app-weather-card *ngFor="let data of weatherObj; let i=index " id={{i}} [weatherData]="data" (delete)="deleteWea($event)"> </app-weather-card>
+    <app-weather-card *ngFor="let data of weatherObj; let i=index " [id]="i" [weatherData]="data" (delete)="deleteWea($event)"> </app-weather-card>
 </div>

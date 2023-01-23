@@ -6,7 +6,7 @@
         <div class="w3-card-4" style="width:70%">
             <header class="w3-container w3-light-grey">
                 <h4>{{weatherData.city}}   {{weatherData.country}}<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                <button class="w3-button w3-circle w3-teal" (click)="deleteObj(weatherData.city)">X</button></h4>                
+                <button class="w3-button w3-circle w3-teal" (click)="deleteObj(id)">X</button></h4>                
             </header>
             <div class="w3-container">
                 <p>Temperature: {{weatherData.temp}}°F&nbsp;&nbsp;&nbsp; Feels like {{weatherData.feel}}°F</p>

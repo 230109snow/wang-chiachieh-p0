@@ -11,6 +11,7 @@ import { apikey } from '../weatherKey';
 export class WeatherCardComponent {
   constructor(private http: HttpClient) {}
   @Input() weatherData : any = {};
+  @Input() id :number = -1;
   forecastData : object[] = [];
   showInfo = false;
   showText = "+ Show forecast info";
@@ -18,10 +19,10 @@ export class WeatherCardComponent {
   
   
 
-  @Output() delete = new EventEmitter<string>();
+  @Output() delete = new EventEmitter<number>();
 
-  deleteObj( city : string){
-    this.delete.emit(city);
+  deleteObj( id :number){
+    this.delete.emit(id);
   }
 
   showForecast(){
@@ -29,9 +30,7 @@ export class WeatherCardComponent {
     this.showInfo = !this.showInfo;
     this.showText = this.showInfo? "- Hide forecast info" : "+ Show forecast info"
     if(!this.showInfo) {
-      console.log("Before set to zero"+this.forecastData.length);
       this.forecastData.length = 0;
-      console.log("After set to zero"+this.forecastData.length);
     }
     else{
       const fUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${this.weatherData.latitude}&lon=${this.weatherData.longitude}&&appid=${apikey}&units=imperial`;

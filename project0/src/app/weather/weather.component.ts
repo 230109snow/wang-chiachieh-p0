@@ -48,16 +48,7 @@ export class WeatherComponent {
       this.zipcode=""
     }
   }
-  deleteWea(city : string){
-    console.log("doing something ");
-    console.log(city);
-    console.log(this.weatherObj[0]);
-    for(let i =0; i<this.weatherObj.length; i++){
-      if(this.weatherObj[i].city === city) {
-        this.weatherObj.splice(i,1);
-        break;
-      }
-    }
-
+  deleteWea(id :number){
+    this.weatherObj.splice(id,1);
   }
 }
