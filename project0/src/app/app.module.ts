@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { WeatherComponent } from './weather/weather.component';
 import { WeatherCardComponent } from './weather/weather-card/weather-card.component';
 import { WeatherForecastComponent } from './weather-forecast/weather-forecast.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { WeatherForecastComponent } from './weather-forecast/weather-forecast.co
     AppComponent,
     WeatherComponent,
     WeatherCardComponent,
-    WeatherForecastComponent
+    WeatherForecastComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
