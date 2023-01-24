@@ -51,10 +51,8 @@ export class WeatherCardComponent {
     } 
   }
   showPollution(){
-    console.log("Air pollution")
     this.showAirP = !this.showAirP;
     this.pollutionText = this.showAirP? "- Hide air pollution info" : "+ Show air pollution info";
-    console.log(this.pollutionText);
     const airUrl = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${this.weatherData.latitude}&lon=${this.weatherData.longitude}&appid=${apikey}`
     this.http.get(airUrl).subscribe( (data : any) => {
       this.airData = data.list[0].components;
