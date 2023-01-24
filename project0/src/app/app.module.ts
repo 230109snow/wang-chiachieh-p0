@@ -8,8 +8,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WeatherComponent } from './weather/weather.component';
 import { WeatherCardComponent } from './weather/weather-card/weather-card.component';
-import { WeatherForecastComponent } from './weather-forecast/weather-forecast.component';
+import { WeatherForecastComponent } from './weather/weather-forecast/weather-forecast.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { PollutionComponent } from './weather/pollution/pollution.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     WeatherComponent,
     WeatherCardComponent,
     WeatherForecastComponent,
-    NavbarComponent
+    NavbarComponent,
+    PollutionComponent
   ],
   imports: [
     BrowserModule,

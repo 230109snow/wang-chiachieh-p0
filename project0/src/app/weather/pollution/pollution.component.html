@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<div class="w3-panel w3-border">
+    <h2 style="text-align: center;">Air Pollution Data</h2>
+    <h4 style="text-align: center;">Pollutant Concentration</h4>
+    <table class="w3-table w3-striped">
+        <tr>
+            <th>Quality</th>	
+            <th>NO<sub>2</sub></th>
+            <th>O<sub>3</sub></th>
+            <th>PM<sub>10</sub></th>
+            <th>PM<sub>2.5</sub></th>
+        </tr>
+        <tr>
+            <td style="background-color: darkgreen; color: white;">Good</td>
+            <td [ngClass] = "airPollData.no2 < 50 ? 'DarkGreen' :
+                             airPollData.no2 < 100 ? 'lightGreen' :
+                             airPollData.no2 < 200 ? 'yellow' :
+                             airPollData.no2 < 400 ? 'orange' : 'red'">
+                             {{airPollData.no2}} μg/m<sup>3</sup>
+            </td>
+            <td [ngClass] = "airPollData.o3 < 60 ? 'DarkGreen' :
+                             airPollData.o3 < 120 ? 'lightGreen' :
+                             airPollData.o3 < 180 ? 'yellow' :
+                             airPollData.o3 < 240 ? 'orange' : 'red'">
+                             {{airPollData.o3}}  μg/m<sup>3</sup>
+            </td>
+            <td [ngClass] = "airPollData.pm10 < 25 ? 'DarkGreen' :
+                             airPollData.pm10 < 50 ? 'lightGreen' :
+                             airPollData.pm10 < 90 ? 'yellow' :
+                             airPollData.pm10 < 180 ? 'orange' : 'red'">
+                             {{airPollData.pm10}} μg/m<sup>3</sup>
+            </td>
+            <td [ngClass] = "airPollData.pm2_5 < 15 ? 'DarkGreen' :
+                             airPollData.pm2_5 < 30 ? 'lightGreen' :
+                             airPollData.pm2_5 < 55 ? 'yellow' :
+                             airPollData.pm2_5 < 110 ? 'orange' : 'red'">
+                             {{airPollData.pm2_5}} μg/m<sup>3</sup>
+            </td>    
+        </tr>
+        <tr>
+            <td style="background-color: lightgreen; color: white;">Fair</td>
+        </tr>
+        <tr>
+            <td style="background-color: rgb(219, 219, 38); color: white;">Moderate</td>
+        </tr>
+        <tr>
+            <td style="background-color: orange; color: white;">Poor</td>
+        </tr>
+        <tr>
+            <td style="background-color: red; color: white;">Very Poor</td>
+        </tr>
+    </table>

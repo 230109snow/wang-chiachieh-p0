@@ -12,13 +12,17 @@ export class WeatherCardComponent {
   constructor(private http: HttpClient) {}
   @Input() weatherData : any = {};
   @Input() id :number = -1;
+  // Forecast
   forecastData : object[] = [];
   showInfo = false;
-  showText = "+ Show forecast info";
+  showText = "+ Show forecast info"; 
+  // Air pollution
+  showAirP = false;
+  pollutionText = "+ Show air pollution info";
+  airData : object = {};
 
+    // Delete component 
   
-  
-
   @Output() delete = new EventEmitter<number>();
 
   deleteObj( id :number){
@@ -45,5 +49,15 @@ export class WeatherCardComponent {
         }
       })
     } 
+  }
+  showPollution(){
+    console.log("Air pollution")
+    this.showAirP = !this.showAirP;
+    this.pollutionText = this.showAirP? "- Hide air pollution info" : "+ Show air pollution info";
+    console.log(this.pollutionText);
+    const airUrl = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${this.weatherData.latitude}&lon=${this.weatherData.longitude}&appid=${apikey}`
+    this.http.get(airUrl).subscribe( (data : any) => {
+      this.airData = data.list[0].components;
+    })
   }
 }
