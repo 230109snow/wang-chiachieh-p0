@@ -11,6 +11,7 @@ import { WeatherCardComponent } from './weather/weather-card/weather-card.compon
 import { WeatherForecastComponent } from './weather/weather-forecast/weather-forecast.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PollutionComponent } from './weather/pollution/pollution.component';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { PollutionComponent } from './weather/pollution/pollution.component';
     WeatherCardComponent,
     WeatherForecastComponent,
     NavbarComponent,
-    PollutionComponent
+    PollutionComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
