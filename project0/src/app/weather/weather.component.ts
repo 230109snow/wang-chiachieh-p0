@@ -12,8 +12,9 @@ export class WeatherComponent {
   constructor(private http: HttpClient) {}
   cityName : string = "";
   zipcode : string = "";
+  // store the current weather data and passing to the child component 
   weatherObj  : any[] = [];
-
+  // To store latitude and longitude data which going to use in the future 
   lat : number = 0;
   lon : number = 0;
   getData(){  
@@ -48,7 +49,14 @@ export class WeatherComponent {
       this.zipcode=""
     }
   }
+  // Delete a certain weather card component
   deleteWea(id :number){
     this.weatherObj.splice(id,1);
+  }
+
+  // Delete all weather card components
+  deleteAll(){
+    console.log("Delete all")
+    this.weatherObj.length = 0;
   }
 }
