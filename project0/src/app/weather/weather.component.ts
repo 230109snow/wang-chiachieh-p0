@@ -10,6 +10,7 @@ import { apikey } from './weatherKey';
 })
 export class WeatherComponent {
   constructor(private http: HttpClient) {}
+  // City name or zip code, use either one to get the current time weather data
   cityName : string = "";
   zipcode : string = "";
   // store the current weather data and passing to the child component 
@@ -21,12 +22,13 @@ export class WeatherComponent {
 
     if(this.cityName === "" && this.zipcode === "") alert("You must enter a city namr or zipcode !");
     else{
+      // Determine which url going to use depends on user input city name or zip code
       const url = this.cityName ? `https://api.openweathermap.org/data/2.5/weather?q=${this.cityName}&appid=${apikey}&units=imperial`:
                                   `https://api.openweathermap.org/data/2.5/weather?zip=${this.zipcode},us&appid=${apikey}&units=imperial`;
 
-  
+      // API call 
       this.http.get(url).subscribe( { next : (data : any) => {
-      
+        // Store needed weather data in an object
         const weatherDetail = {
           city : data.name,
           country  : data.sys.country,
@@ -40,6 +42,7 @@ export class WeatherComponent {
           temp : data.main.temp,   
           windSpeed : data.wind.speed
         }
+        // unshift the object the weatherObj array
         this.weatherObj.unshift(weatherDetail);
         }, error : (err) => {
           alert("Make sure you enter a valid city name or a valid zipcode")
@@ -49,7 +52,7 @@ export class WeatherComponent {
       this.zipcode=""
     }
   }
-  // Delete a certain weather card component
+  // Delete a particular weather card component by the index which store in the weatherObj array
   deleteWea(id :number){
     this.weatherObj.splice(id,1);
   }
