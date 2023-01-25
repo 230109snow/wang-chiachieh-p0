@@ -42,7 +42,7 @@ export class WeatherCardComponent {
       const fUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${this.weatherData.latitude}&lon=${this.weatherData.longitude}&&appid=${apikey}&units=imperial`;
       this.http.get(fUrl).subscribe( (data : any) => {
         // the response data contains 40 forecast data, but I only need 6 out of them.
-        for(let i=0 ; i<6; i++ ){
+        for(let i=0 ; i<11; i+=2 ){
           const forecastDataObj = {
           timeText : data.list[i].dt_txt,
           temp : data.list[i].main.temp,
